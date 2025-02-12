@@ -1,0 +1,10 @@
+<h1>User's List</h1>
+
+@for (user of userList; track user) {
+<cdev-user
+  name="{{ user.name }}"
+  lastname="{{ user.lastname }}"
+  age="{{ user.age }}"
+  lastLogin="{{ user.lastLogin }}"
+></cdev-user>
+}
