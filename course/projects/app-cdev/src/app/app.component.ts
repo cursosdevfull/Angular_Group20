@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-
-import { UserListComponent } from './user-list/user-list.component';
+import { PageAuthComponent } from './auth/views/page-auth/page-auth.component';
 
 @Component({
   selector: 'cdev-root',
-  imports: [UserListComponent],
+  imports: [PageAuthComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

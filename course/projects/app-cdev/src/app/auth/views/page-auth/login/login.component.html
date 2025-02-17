@@ -1,0 +1,8 @@
+<form class="login-form" [formGroup]="formGroup" (ngSubmit)="onLogin()">
+  <h2>Credentials</h2>
+  <input type="email" placeholder="Email" class="input-field" formControlName="email">
+  <input type="password" placeholder="Password" class="input-field" formControlName="password"> 
+  <input type="text" placeholder="Token" class="input-field" formControlName="otp">
+  <a class="forgot-password-link">Did you forget your password? Click here</a>
+  <button type="submit" class="login-button" [disabled]="formGroup.invalid">Login</button>
+</form>
