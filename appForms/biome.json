@@ -1,0 +1,75 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+		"ignore": [
+			".git",
+			".github",
+			".husky",
+			".ruff_cache",
+			".mypy_cache",
+			".pytest_cache",
+			".turbo",
+			".venv",
+			"cdk.out",
+			"node_modules"
+		],
+		"ignoreUnknown": true
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"lineWidth": 100,
+		"formatWithErrors": true,
+		"ignore": ["*.json", "dist*"]
+	},
+	"json": {
+		"parser": {
+			"allowComments": true
+		}
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"noForEach": "off",
+				"noStaticOnlyClass": "off"
+			},
+			"style": {
+				"useConsistentArrayType": "error",
+				"useNamingConvention": {
+					"level": "error",
+					"options": {
+						"conventions": [
+							{
+								"selector": {
+									"kind": "objectLiteralProperty"
+								},
+								"formats": ["camelCase", "PascalCase", "CONSTANT_CASE", "snake_case"]
+							}
+						]
+					}
+				},
+				"useNodejsImportProtocol": "off"
+			},
+			"correctness": {
+				"noUnusedVariables": "error",
+				"noUnusedImports": "error"
+			}
+		},
+		"ignore": ["dist*", "**/analytics-client.js", "**/analytics-client.d.ts"]
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single"
+		}
+	}
+}

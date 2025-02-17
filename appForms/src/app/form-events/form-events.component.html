@@ -1,0 +1,19 @@
+<form class="container">
+  <div class="form-wrapper">
+    <h2>Credentials</h2>
+    <div>
+        <input type="email" placeholder="Email" class="input-field" (input)="inputEmail($event)" [ngClass]="{error: validateForm.isEmailError() }" >
+        @if (validateForm.isEmailError()) {
+            <span class="errorMessage">email is required and must be an email</span>
+        }
+    </div>
+    <div>
+        <input type="password" placeholder="Password" class="input-field" (input)="inputPassword($event)" [ngClass]="{error: validateForm.isPasswordError() }">
+        @if (validateForm.isPasswordError()) {
+            <span class="errorMessage">password is required and has to have one letter and one digit. Its lenght must be greater than zero</span>
+        }
+    </div>
+    <button class="login-button" (click)="login()" [disabled]="!isValid">Login</button>
+  </div>
+</form>
+

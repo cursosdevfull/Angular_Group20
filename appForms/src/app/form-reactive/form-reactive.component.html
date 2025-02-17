@@ -1,0 +1,19 @@
+<form class="container" [formGroup]="formGroup">
+  <div class="form-wrapper">
+    <h2>Credentials</h2>
+    <div>
+        <input type="email" placeholder="Email" class="input-field" formControlName="email" >
+            <!-- <span class="errorMessage">email is required and must be an email</span> -->
+    </div>
+    <div>
+        <input type="password" placeholder="Password" class="input-field" formControlName="password">
+            <!-- <span class="errorMessage">password is required and has to have one letter and one digit. Its lenght must be greater than zero</span> -->
+    </div>
+        <div>
+        <input type="password" placeholder="Confirm password" class="input-field" formControlName="confirmPassword">
+            <!-- <span class="errorMessage">password is required and has to have one letter and one digit. Its lenght must be greater than zero</span> -->
+    </div>
+    <button class="login-button" (click)="login()" >Login</button>
+  </div>
+</form>
+
