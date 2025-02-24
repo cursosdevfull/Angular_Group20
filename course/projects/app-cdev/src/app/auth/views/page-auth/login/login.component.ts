@@ -26,14 +26,23 @@ export class LoginComponent {
   onLogin() {
     const { email, password } = this.formGroup.value
 
-    this.authService.login(email, password)
-      .then((response: ResponseLogin) => {
+    this.authService.login(email, password).subscribe({
+      next: (response: ResponseLogin) => {
         alert(response.message)
-      })
-      .catch((error: { status: number, message: string }) => {
+      },
+      error: (error: { status: number, message: string }) => {
         alert(error.message)
-      })
+      }
+    })
 
+    /*  this.authService.login(email, password)
+       .then((response: ResponseLogin) => {
+         alert(response.message)
+       })
+       .catch((error: { status: number, message: string }) => {
+         alert(error.message)
+       })
+  */
     /*   if (isValidForm) {
         alert("Login successful")
       } else {
