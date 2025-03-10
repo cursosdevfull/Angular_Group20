@@ -1,0 +1,13 @@
+<h1>Starships with signals and httpResource</h1>
+<div class="container-input">
+    <input type="text" (input)="onSearch($event)" placeholder="Search starships" />
+</div>
+<div>
+    @if(starships() && starships().length > 0) {
+    @for(starship of starships(); track starship) {
+    <div>
+        <button (click)="onSelectStarship(starship)">{{starship.name}}</button>
+    </div>
+    }
+    }
+</div>

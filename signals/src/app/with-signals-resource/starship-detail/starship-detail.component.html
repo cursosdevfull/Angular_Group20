@@ -1,0 +1,22 @@
+@let ship = starship();
+@if(ship) {
+<h1>
+    {{ship.name}}
+</h1>
+<div class="row">
+    <div class="header">Manufacturer</div>
+    <div class="data">{{ship.manufacturer}}</div>
+</div>
+<div class="row">
+    <div class="header">Crew</div>
+    <div class="data">{{ship.crew}}</div>
+</div>
+<div class="row">
+    <div class="header">Price</div>
+    <div class="data">{{ship.cost_in_credits | number: "1.2-2"}}</div>
+</div>
+<div class="row">
+    <div class="header">Passengers</div>
+    <div class="data">{{ship.passengers}}</div>
+</div>
+}

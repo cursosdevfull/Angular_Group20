@@ -1,0 +1,10 @@
+<h1>Starships with observables</h1>
+<div>
+    @if(starships | async) {
+    @for(starship of starships | async; track starship) {
+    <div>
+        <button (click)="onSelectStarship(starship)">{{starship.name}}</button>
+    </div>
+    }
+    }
+</div>

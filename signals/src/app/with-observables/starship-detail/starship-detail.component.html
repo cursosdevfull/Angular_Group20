@@ -1,0 +1,21 @@
+@if(infoStarship | async; as starship) {
+<h1>
+    {{starship.name}}
+</h1>
+<div class="row">
+    <div class="header">Manufacturer</div>
+    <div class="data">{{starship.manufacturer}}</div>
+</div>
+<div class="row">
+    <div class="header">Crew</div>
+    <div class="data">{{starship.crew}}</div>
+</div>
+<div class="row">
+    <div class="header">Price</div>
+    <div class="data">{{starship.cost_in_credits | number: "1.2-2"}}</div>
+</div>
+<div class="row">
+    <div class="header">Passengers</div>
+    <div class="data">{{starship.passengers}}</div>
+</div>
+}

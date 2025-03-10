@@ -1,0 +1,10 @@
+<h1>Starships with signals and resource</h1>
+<div>
+    @if(starships() && starships().length > 0) {
+    @for(starship of starships(); track starship) {
+    <div>
+        <button (click)="onSelectStarship(starship)">{{starship.name}}</button>
+    </div>
+    }
+    }
+</div>
