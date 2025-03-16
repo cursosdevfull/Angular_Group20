@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +13,11 @@ export class AppComponent {
   http = inject(HttpClient)
 
   constructor() {
-    this.getData()
+    //this.getData()
+    this.title = 'interceptors: ' + environment.apiUrl
   }
 
   getData() {
-    this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe(console.log)
+    this.http.get("/posts").subscribe(console.log)
   }
 }

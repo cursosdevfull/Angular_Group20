@@ -9,6 +9,12 @@ import { loggingInterceptor } from './interceptors/logging.interceptor';
 import { cacheInterceptor } from './interceptors/cache.interceptor';
 import { headersInterceptor } from './interceptors/headers.interceptor';
 import { loadingInterceptor } from './interceptors/loading.interceptor';
+import { timeoutInterceptor } from './interceptors/timeout.interceptor';
+import { baseUrlInterceptor } from './interceptors/base-url.interceptor';
+import { retryInterceptor } from './interceptors/retry.interceptor';
+import { offlineModeInterceptor } from './interceptors/offline-mode.interceptor';
+import { jwtRefreshTokenInterceptor } from './interceptors/jwt-refresh-token.interceptor';
+import { requestTimingInterceptor } from './interceptors/request-timing.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,7 +28,13 @@ export const appConfig: ApplicationConfig = {
         loggingInterceptor,
         cacheInterceptor,
         headersInterceptor,
-        loadingInterceptor
+        loadingInterceptor,
+        timeoutInterceptor,
+        baseUrlInterceptor,
+        retryInterceptor,
+        offlineModeInterceptor,
+        requestTimingInterceptor
+        //jwtRefreshTokenInterceptor
       ])
     )]
 };
