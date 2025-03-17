@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LoginComponent } from './login/login.component';
+import { LayoutService } from '../../../core/services/layout.service';
 
 @Component({
   selector: 'cdev-page-auth',
@@ -8,5 +9,9 @@ import { LoginComponent } from './login/login.component';
   styleUrl: './page-auth.component.scss'
 })
 export class PageAuthComponent {
+  layoutService = inject(LayoutService);
 
+  constructor() {
+    this.layoutService.layout.set({ header: false, menu: false });
+  }
 }

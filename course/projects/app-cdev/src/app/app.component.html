@@ -1,1 +1,17 @@
-<cdev-page-auth></cdev-page-auth>
+<mat-sidenav-container>
+    @let layout = showLayout();
+    @if(layout.menu) {
+    <mat-sidenav mode="side" opened="true">
+        Here will be the menu
+    </mat-sidenav>
+    }
+    <mat-sidenav-content>
+        @if(layout.header) {
+        <cdev-header></cdev-header>
+        }
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+@if(showLoader()) {
+<cdev-loader></cdev-loader>
+}
