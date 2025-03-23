@@ -1,1 +1,4 @@
-course
+course*
+interceptors
+observables
+signals

@@ -1,0 +1,13 @@
+<p>container works!</p>
+<table>
+    <tr>
+        <th>Projection default</th>
+        <th>Projection by ClassName</th>
+        <th>Projection by Attribute</th>
+    </tr>
+    <tr>
+        <td><ng-content></ng-content></td>
+        <td><ng-content select=".selection"></ng-content></td>
+        <td><ng-content select="[subSelection]"></ng-content></td>
+    </tr>
+</table>
