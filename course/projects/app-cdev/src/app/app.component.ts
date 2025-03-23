@@ -6,10 +6,11 @@ import { LayoutService } from './core/services/layout.service';
 import { Layout } from './core/services/layout.type';
 import { LoaderComponent } from './core/views/loader/loader.component';
 import { LoaderService } from './core/services/loader.service';
+import { MenuComponent } from './core/views/menu/menu.component';
 
 @Component({
   selector: 'cdev-root',
-  imports: [RouterOutlet, MatSidenavModule, HeaderComponent, LoaderComponent],
+  imports: [RouterOutlet, MatSidenavModule, HeaderComponent, LoaderComponent, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

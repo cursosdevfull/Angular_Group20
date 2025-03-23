@@ -1,0 +1,27 @@
+a.active {
+    background-color: #c3e4c3
+}
+a.active span.title {
+    font-weight: 500;
+}
+
+.item-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.child {
+    margin-left: 20px;
+    width: 88%
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.logo img {
+    width: 100%;
+    max-width: 150px;
+}

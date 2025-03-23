@@ -8,5 +8,6 @@ export const routes: Routes = [
     { path: "dashboard", loadComponent: () => import("./dashboard/views/page-dashboard/page-dashboard.component").then(m => m.PageDashboardComponent) },
     { path: "schedule", loadComponent: () => import("./schedule/views/page-schedule/page-schedule.component").then(m => m.PageScheduleComponent) },
     { path: "user", loadComponent: () => import("./user/views/page-user/page-user.component").then(m => m.PageUserComponent) },
+    { path: "students", loadChildren: () => import("./students/students.routes").then(m => m.studentRoutes) },
     { path: "**", redirectTo: "login" },
 ];
