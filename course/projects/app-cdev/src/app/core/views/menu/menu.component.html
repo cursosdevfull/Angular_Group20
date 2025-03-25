@@ -4,12 +4,21 @@
 
 <mat-nav-list>
     @for (item of items; track item) {
+    @if(item.children) {
+    <mat-list-item>
+        <span class="item-menu">
+            <mat-icon fontIcon="{{item.icon}}"></mat-icon>
+            <span class="title">{{item.title}}</span>
+        </span>
+    </mat-list-item>
+    } @else {
     <a mat-list-item routerLink="{{item.route}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <span class="item-menu">
             <mat-icon fontIcon="{{item.icon}}"></mat-icon>
             <span class="title">{{item.title}}</span>
         </span>
     </a>
+    }
 
     @if(item.children) {
     @for (itemChild of item.children; track itemChild) {

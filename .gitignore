@@ -3,3 +3,4 @@ appProviders
 observables
 signals
 interceptors
+projections

@@ -1,5 +1,5 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderComponent } from './core/views/header/header.component';
 import { LayoutService } from './core/services/layout.service';
@@ -18,7 +18,18 @@ export class AppComponent {
   layoutService = inject(LayoutService)
   loaderService = inject(LoaderService)
 
+  //router = inject(Router)
+
   showLayout: WritableSignal<Layout> = this.layoutService.layout
   showLoader: WritableSignal<boolean> = this.loaderService.loader
+
+  /*   constructor() {
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          console.log('Current URL:', event.url);
+          console.log('Router state:', this.router.routerState.snapshot);
+        }
+      });
+    } */
 
 }
