@@ -1,18 +1,24 @@
-import { Component, inject } from '@angular/core';
-import { LayoutService } from '../../../core/services/layout.service';
+import { Component } from '@angular/core';
 import { ContainerComponent } from '../../../core/views/container/container.component';
-import { TitleComponent } from '../../../core/views/title/title.component';
 import { MatButtonModule } from '@angular/material/button';
 import { Metadata } from '../../../core/types/metadata.type';
+import { PaginatorComponent } from '../../../core/views/paginator/paginator.component';
+import { TableComponent } from '../../../core/views/table/table.component';
+import { SubtitleComponent } from '../../../core/views/subtitle/subtitle.component';
+import { BaseComponent } from '../../../core/component/base.component';
+import { FormAssessmentsComponent } from './form-assessments/form-assessments.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'cdev-assessments',
-  imports: [ContainerComponent, MatButtonModule],
+  imports: [ContainerComponent, SubtitleComponent, MatButtonModule, TableComponent, PaginatorComponent, MatDialogModule, MatTableModule, MatButtonModule, MatIconModule],
   templateUrl: './assessments.component.html',
   styleUrl: './assessments.component.scss'
 })
-export class AssessmentsComponent {
-  layoutService = inject(LayoutService);
+export class AssessmentsComponent extends BaseComponent {
+  subtitle = "Assessments"
 
   metadata: Metadata = [
     { field: 'id', label: 'ID' },
@@ -20,7 +26,7 @@ export class AssessmentsComponent {
     { field: 'status', label: 'Status' }
   ]
 
-  data = [
+  dataOriginal = [
     { id: 1, name: 'Assessment 1', status: 'Completed' },
     { id: 2, name: 'Assessment 2', status: 'In Progress' },
     { id: 3, name: 'Assessment 3', status: 'Not Started' },
@@ -64,6 +70,7 @@ export class AssessmentsComponent {
   ]
 
   constructor() {
-    this.layoutService.layout.set({ header: true, menu: true });
+    super(FormAssessmentsComponent, "dialog-form-assessments", "id")
+    this.loadPage(0)
   }
 }

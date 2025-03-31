@@ -1,0 +1,28 @@
+<mat-toolbar>
+    <h3>{{title}}</h3>
+    <button mat-icon-button mat-dialog-close>
+        <mat-icon fontIcon="close"></mat-icon>
+    </button>
+</mat-toolbar>
+<form mat-dialog-content [formGroup]="fg">
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="courseName" />
+        <mat-error>Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="courseDescription" />
+        <mat-error>Description is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Duration</mat-label>
+        <input matInput formControlName="courseDuration" />
+        <mat-error>Duration is required</mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions align="end">
+        <button type="button" mat-flat-button color="primary" (click)="save()" [disabled]="fg.invalid">Save</button>
+        <button type="button" mat-button mat-dialog-close>Cancel</button>
+    </div>
+</form>

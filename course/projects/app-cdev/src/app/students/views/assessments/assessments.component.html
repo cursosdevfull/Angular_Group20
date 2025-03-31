@@ -1,1 +1,17 @@
-<cdev-container title="Assessments" [data]="data" [metadata]="metadata"></cdev-container>
+<cdev-container>
+    <cdev-subtitle [subtitle]="subtitle" projection01 (click)="openForm()">
+        <button mat-flat-button>Add</button>
+    </cdev-subtitle>
+    <cdev-table [data]="data" [metadata]="metadata" height="80%" projection02 (onSelect)="openForm($event)">
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="remove($event, row)">
+                    <mat-icon fontIcon="delete"></mat-icon>
+                </button>
+            </td>
+        </ng-container>
+    </cdev-table>
+    <cdev-paginator [length]="dataOriginal.length" [pageSize]="pageSize" (onChangePage)="loadPage($event)"
+        projection03></cdev-paginator>
+</cdev-container>

@@ -1,4 +1,4 @@
-import { Component, inject, input, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute } from '@angular/router';
 import { MenuService } from '../../services/menu.service';
@@ -10,11 +10,6 @@ import { MenuService } from '../../services/menu.service';
   styleUrl: './title.component.scss'
 })
 export class TitleComponent {
-  /*@Input() title: string = '';
-  @Input() icon: string = '';*/
-
-  //title = input.required<string>();
-  //icon = input.required<string>(); // or use @Input() icon: string = ''; if you prefer to use the decorator
   title = ""
   icon = ""
 

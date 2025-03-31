@@ -1,19 +1,23 @@
 import { Component, inject } from '@angular/core';
 import { ContainerComponent } from '../../../core/views/container/container.component';
 import { TitleComponent } from '../../../core/views/title/title.component';
-import { LayoutService } from '../../../core/services/layout.service';
 import { MatButtonModule } from '@angular/material/button';
 import { Metadata } from '../../../core/types/metadata.type';
+import { TableComponent } from '../../../core/views/table/table.component';
+import { PaginatorComponent } from '../../../core/views/paginator/paginator.component';
+import { BaseComponent } from '../../../core/component/base.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { FormCourseComponent } from '../form-course/form-course.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'cdev-page-course',
-  imports: [ContainerComponent, TitleComponent, MatButtonModule],
+  imports: [ContainerComponent, TitleComponent, MatButtonModule, TableComponent, PaginatorComponent, MatDialogModule, MatTableModule, MatButtonModule, MatIconModule],
   templateUrl: './page-course.component.html',
   styleUrl: './page-course.component.scss'
 })
-export class PageCourseComponent {
-  layoutService = inject(LayoutService);
-
+export class PageCourseComponent extends BaseComponent {
   metadata: Metadata = [
     { field: 'courseId', label: 'ID' },
     { field: 'courseName', label: 'Name' },
@@ -21,8 +25,7 @@ export class PageCourseComponent {
     { field: 'courseDuration', label: 'Duration' },
   ]
 
-
-  data = [
+  dataOriginal = [
     { courseId: 1, courseName: 'Angular', courseDescription: 'Angular is a platform for building mobile and desktop web applications.', courseDuration: '3 months' },
     { courseId: 2, courseName: 'React', courseDescription: 'React is a JavaScript library for building user interfaces.', courseDuration: '2 months' },
     { courseId: 3, courseName: 'Vue', courseDescription: 'Vue is a progressive framework for building user interfaces.', courseDuration: '1 month' },
@@ -76,7 +79,7 @@ export class PageCourseComponent {
   ]
 
   constructor() {
-    this.layoutService.layout.set({ header: true, menu: true });
+    super(FormCourseComponent, "dialog-form-course", "courseId")
+    this.loadPage(0)
   }
-
 }

@@ -1,0 +1,17 @@
+.dialog-form-user {
+    width: 100%;
+    max-width: 400px;
+}
+
+.dialog-form-user mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black
+}
+
+.dialog-form-user form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

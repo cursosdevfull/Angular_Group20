@@ -1,18 +1,24 @@
-import { Component, inject } from '@angular/core';
-import { LayoutService } from '../../../core/services/layout.service';
+import { Component } from '@angular/core';
 import { ContainerComponent } from '../../../core/views/container/container.component';
-import { TitleComponent } from '../../../core/views/title/title.component';
 import { MatButtonModule } from '@angular/material/button';
 import { Metadata } from '../../../core/types/metadata.type';
+import { PaginatorComponent } from '../../../core/views/paginator/paginator.component';
+import { TableComponent } from '../../../core/views/table/table.component';
+import { SubtitleComponent } from '../../../core/views/subtitle/subtitle.component';
+import { BaseComponent } from '../../../core/component/base.component';
+import { FormPaymentsComponent } from './form-payments/form-payments.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'cdev-payments',
-  imports: [ContainerComponent, MatButtonModule],
+  imports: [ContainerComponent, SubtitleComponent, MatButtonModule, TableComponent, PaginatorComponent, MatDialogModule, MatTableModule, MatButtonModule, MatIconModule],
   templateUrl: './payments.component.html',
   styleUrl: './payments.component.scss'
 })
-export class PaymentsComponent {
-  layoutService = inject(LayoutService);
+export class PaymentsComponent extends BaseComponent {
+  subtitle = "Payments"
 
   metadata: Metadata = [
     { field: 'id', label: 'ID' },
@@ -20,7 +26,7 @@ export class PaymentsComponent {
     { field: 'status', label: 'Status' }
   ]
 
-  data = [
+  dataOriginal = [
     { id: 1, name: 'Payment 1', status: 'Completed' },
     { id: 2, name: 'Payment 2', status: 'In Progress' },
     { id: 3, name: 'Payment 3', status: 'Not Started' },
@@ -74,6 +80,7 @@ export class PaymentsComponent {
   ]
 
   constructor() {
-    this.layoutService.layout.set({ header: true, menu: true });
+    super(FormPaymentsComponent, "dialog-form-payments", "id")
+    this.loadPage(0)
   }
 }

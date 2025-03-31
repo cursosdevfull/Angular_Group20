@@ -1,0 +1,10 @@
+@let stitle = subtitle();
+@if(stitle) {
+<div class="container">
+    <h1 class="subtitle">
+        <span>{{stitle}}</span>
+    </h1>
+
+    <ng-content></ng-content>
+</div>
+}

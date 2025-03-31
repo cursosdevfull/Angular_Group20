@@ -1,0 +1,20 @@
+<ng-content></ng-content>
+<perfect-scrollbar style="height: 100%">
+    <table mat-table [dataSource]="data()">
+        @for(column of metadata(); track column) {
+        <ng-container [matColumnDef]="column.field">
+            <th mat-header-cell *matHeaderCellDef>
+                {{column.label}}
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{row[column.field]}}
+            </td>
+        </ng-container>
+        }
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns(); sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns()" class="row-hover" (click)="selectRegister(row)">
+        </tr>
+    </table>
+</perfect-scrollbar>

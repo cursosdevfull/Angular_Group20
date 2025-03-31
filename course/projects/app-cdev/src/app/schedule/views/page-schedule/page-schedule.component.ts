@@ -4,16 +4,21 @@ import { TitleComponent } from '../../../core/views/title/title.component';
 import { LayoutService } from '../../../core/services/layout.service';
 import { MatButtonModule } from '@angular/material/button';
 import { Metadata } from '../../../core/types/metadata.type';
+import { PaginatorComponent } from '../../../core/views/paginator/paginator.component';
+import { TableComponent } from '../../../core/views/table/table.component';
+import { BaseComponent } from '../../../core/component/base.component';
+import { FormScheduleComponent } from '../form-schedule/form-schedule.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'cdev-page-schedule',
-  imports: [ContainerComponent, TitleComponent, MatButtonModule],
+  imports: [ContainerComponent, TitleComponent, MatButtonModule, TableComponent, PaginatorComponent, MatDialogModule, MatTableModule, MatButtonModule, MatIconModule],
   templateUrl: './page-schedule.component.html',
   styleUrl: './page-schedule.component.scss'
 })
-export class PageScheduleComponent {
-  layoutService = inject(LayoutService);
-
+export class PageScheduleComponent extends BaseComponent {
   metadata: Metadata = [
     { field: 'scheduleId', label: 'Schedule ID' },
     { field: 'name', label: 'Name' },
@@ -21,7 +26,7 @@ export class PageScheduleComponent {
     { field: 'status', label: 'Status' },
   ]
 
-  data = [
+  dataOriginal = [
     { scheduleId: 1, name: 'Schedule 1', date: '2023-10-01', status: 'active' },
     { scheduleId: 2, name: 'Schedule 2', date: '2023-10-02', status: 'inactive' },
     { scheduleId: 3, name: 'Schedule 3', date: '2023-10-03', status: 'active' },
@@ -68,6 +73,7 @@ export class PageScheduleComponent {
   ]
 
   constructor() {
-    this.layoutService.layout.set({ header: true, menu: true });
+    super(FormScheduleComponent, "dialog-form-schedule", "scheduleId")
+    this.loadPage(0)
   }
 }

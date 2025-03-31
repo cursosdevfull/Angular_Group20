@@ -1,19 +1,23 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContainerComponent } from '../../../core/views/container/container.component';
 import { TitleComponent } from '../../../core/views/title/title.component';
-import { LayoutService } from '../../../core/services/layout.service';
 import { MatButtonModule } from '@angular/material/button';
 import { Metadata } from '../../../core/types/metadata.type';
+import { PaginatorComponent } from '../../../core/views/paginator/paginator.component';
+import { TableComponent } from '../../../core/views/table/table.component';
+import { BaseComponent } from '../../../core/component/base.component';
+import { FormUserComponent } from '../form-user/form-user.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'cdev-page-user',
-  imports: [ContainerComponent, TitleComponent, MatButtonModule],
+  imports: [ContainerComponent, TitleComponent, MatButtonModule, TableComponent, PaginatorComponent, MatDialogModule, MatTableModule, MatButtonModule, MatIconModule],
   templateUrl: './page-user.component.html',
   styleUrl: './page-user.component.scss'
 })
-export class PageUserComponent {
-  layoutService = inject(LayoutService);
-
+export class PageUserComponent extends BaseComponent {
   metadata: Metadata = [
     { field: 'userId', label: 'User ID' },
     { field: 'name', label: 'Name' },
@@ -21,7 +25,7 @@ export class PageUserComponent {
     { field: 'role', label: 'Role' },
   ]
 
-  data = [
+  dataOriginal = [
     { userId: 1, name: 'John Doe', email: 'john.doe@email.com', role: 'admin' },
     { userId: 2, name: 'Jane Smith', email: 'jane.doe@email.com', role: 'user' },
     { userId: 3, name: 'Alice Johnson', email: 'alice.johnson', role: 'user' },
@@ -59,6 +63,7 @@ export class PageUserComponent {
   ]
 
   constructor() {
-    this.layoutService.layout.set({ header: true, menu: true });
+    super(FormUserComponent, "dialog-form-user", "userId")
+    this.loadPage(0)
   }
 }

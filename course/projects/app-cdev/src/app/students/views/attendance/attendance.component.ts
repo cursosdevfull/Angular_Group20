@@ -4,16 +4,23 @@ import { ContainerComponent } from '../../../core/views/container/container.comp
 import { TitleComponent } from '../../../core/views/title/title.component';
 import { MatButtonModule } from '@angular/material/button';
 import { Metadata } from '../../../core/types/metadata.type';
+import { PaginatorComponent } from '../../../core/views/paginator/paginator.component';
+import { TableComponent } from '../../../core/views/table/table.component';
+import { SubtitleComponent } from '../../../core/views/subtitle/subtitle.component';
+import { BaseComponent } from '../../../core/component/base.component';
+import { FormAttendanceComponent } from './form-attendance/form-attendance.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'cdev-attendance',
-  imports: [ContainerComponent, MatButtonModule],
+  imports: [ContainerComponent, SubtitleComponent, MatButtonModule, TableComponent, PaginatorComponent, MatDialogModule, MatTableModule, MatButtonModule, MatIconModule],
   templateUrl: './attendance.component.html',
   styleUrl: './attendance.component.scss'
 })
-export class AttendanceComponent {
-  title = "Attendance";
-  layoutService = inject(LayoutService);
+export class AttendanceComponent extends BaseComponent {
+  subtitle = "Attendance"
 
   metadata: Metadata = [
     { field: 'id', label: 'ID' },
@@ -21,7 +28,7 @@ export class AttendanceComponent {
     { field: 'status', label: 'Status' }
   ]
 
-  data = [
+  dataOriginal = [
     { id: 1, name: 'Attendance 1', status: 'Present' },
     { id: 2, name: 'Attendance 2', status: 'Absent' },
     { id: 3, name: 'Attendance 3', status: 'Present' },
@@ -75,6 +82,7 @@ export class AttendanceComponent {
   ]
 
   constructor() {
-    this.layoutService.layout.set({ header: true, menu: true });
+    super(FormAttendanceComponent, "dialog-form-attendance", "id")
+    this.loadPage(0)
   }
 }

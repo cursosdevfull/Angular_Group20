@@ -1,0 +1,17 @@
+.dialog-form-attendance {
+    width: 100%;
+    max-width: 400px;
+}
+
+.dialog-form-attendance mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black
+}
+
+.dialog-form-attendance form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

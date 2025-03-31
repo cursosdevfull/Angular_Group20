@@ -1,0 +1,14 @@
+mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px
+}
+
+mat-dialog-content h3 {
+    font-family: "Verdana";
+    font-size: 17px;
+    font-weight: normal;
+    margin:0;
+}

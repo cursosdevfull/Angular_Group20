@@ -1,0 +1,18 @@
+.container {
+    height: 64px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dfe6ee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.subtitle {
+    line-height: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}

@@ -1,0 +1,17 @@
+.dialog-form-assessments {
+    width: 100%;
+    max-width: 400px;
+}
+
+.dialog-form-assessments mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black
+}
+
+.dialog-form-assessments form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
