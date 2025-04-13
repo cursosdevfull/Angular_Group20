@@ -1,4 +1,5 @@
 .row-hover:hover {
     cursor:pointer;
-    background-color: #d7d7d7
+    //background-color: #d7d7d7
+    background-color: var(--color-menu-active);
 }

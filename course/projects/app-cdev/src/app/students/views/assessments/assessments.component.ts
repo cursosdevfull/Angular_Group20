@@ -69,6 +69,9 @@ export class AssessmentsComponent extends BaseComponent {
     { id: 40, name: 'Assessment 40', status: 'Completed' }
   ]
 
+  override filename = "exported-assessments"
+  override subject = "Assessments"
+
   constructor() {
     super(FormAssessmentsComponent, "dialog-form-assessments", "id")
     this.loadPage(0)

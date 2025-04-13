@@ -79,6 +79,9 @@ export class PaymentsComponent extends BaseComponent {
     { id: 50, name: 'Payment 50', status: 'In Progress' }
   ]
 
+  override filename = "exported-payments"
+  override subject = "Payments"
+
   constructor() {
     super(FormPaymentsComponent, "dialog-form-payments", "id")
     this.loadPage(0)

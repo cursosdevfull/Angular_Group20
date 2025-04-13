@@ -1,8 +1,18 @@
 <mat-nav-list>
-    <mat-list-item>
+    <mat-list-item (click)="exportTo('excel')">
+        <mat-icon matListItemIcon svgIcon="ico-excel"></mat-icon>
         <span matListItemTitle>Export to EXCEL</span>
     </mat-list-item>
-    <mat-list-item>
-        <span matListItemTitle>Export to PDF</span>
+    <mat-list-item (click)="exportTo('pdf', 'see')">
+        <mat-icon matListItemIcon svgIcon="ico-pdf"></mat-icon>
+        <span matListItemTitle>Export to PDF (See)</span>
+    </mat-list-item>
+    <mat-list-item (click)="exportTo('pdf', 'download')">
+        <mat-icon matListItemIcon svgIcon="ico-pdf"></mat-icon>
+        <span matListItemTitle>Export to PDF (Download)</span>
+    </mat-list-item>
+    <mat-list-item (click)="exportTo('pdf', 'print')">
+        <mat-icon matListItemIcon svgIcon="ico-pdf"></mat-icon>
+        <span matListItemTitle>Export to PDF (Print)</span>
     </mat-list-item>
 </mat-nav-list>

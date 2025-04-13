@@ -12,6 +12,10 @@ export abstract class BaseComponent {
     pageSize = 20
     currentPage = 0
 
+    filename = "exported-data"
+    subject = "Exported Data"
+    pathLogo = "logos/logo.png"
+
     abstract metadata: Metadata
 
     data: any[] = []
@@ -69,7 +73,7 @@ export abstract class BaseComponent {
     }
 
     showOptionsToExport() {
-        this.utilsService.showOptionsToExport()
+        this.utilsService.showOptionsToExport(this.dataOriginal, this.metadata, this.filename, this.subject, this.pathLogo)
     }
 
 }

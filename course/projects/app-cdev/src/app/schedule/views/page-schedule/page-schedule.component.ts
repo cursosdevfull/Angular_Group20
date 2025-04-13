@@ -72,6 +72,9 @@ export class PageScheduleComponent extends BaseComponent {
     { scheduleId: 43, name: 'Schedule 43', date: '2023-11-12', status: 'active' },
   ]
 
+  override filename = "exported-schedules"
+  override subject = "Schedules"
+
   constructor() {
     super(FormScheduleComponent, "dialog-form-schedule", "scheduleId")
     this.loadPage(0)

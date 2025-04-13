@@ -1,5 +1,6 @@
 a.active {
-    background-color: #82b0de
+    // background-color: #82b0de
+    background-color: var(--color-menu-active);
 }
 a.active span.title {
     font-weight: 500;

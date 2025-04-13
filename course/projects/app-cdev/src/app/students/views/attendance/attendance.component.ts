@@ -81,6 +81,9 @@ export class AttendanceComponent extends BaseComponent {
     { id: 50, name: 'Attendance 50', status: 'Absent' }
   ]
 
+  override filename = "exported-attendance"
+  override subject = "Attendance"
+
   constructor() {
     super(FormAttendanceComponent, "dialog-form-attendance", "id")
     this.loadPage(0)

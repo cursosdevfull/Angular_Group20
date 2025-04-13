@@ -1,8 +1,19 @@
 <mat-toolbar>
+    <button mat-icon-button [matMenuTriggerFor]="menuMode">
+        <mat-icon>{{themeModeService.selectedThemeMode()?.icon}}</mat-icon>
+    </button>
+
+
+    <button mat-button [matMenuTriggerFor]="menuColor">
+        <div class="container">
+            <mat-icon fontIcon="format_color_fill"></mat-icon>
+        </div>
+    </button>
+
     <button mat-button [matMenuTriggerFor]="menu">
         <div class="container">
             <img src="/avatars/user.png" alt="" srcset="">
-            <span>Name</span>
+            <span>{{authService.payload()?.name}}</span>
             <mat-icon fontIcon="keyboard_arrow_down"></mat-icon>
         </div>
     </button>
@@ -13,8 +24,30 @@
         <mat-icon>lock</mat-icon>
         <span>Block screen</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="authService.logout()">
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>
     </button>
+</mat-menu>
+
+<mat-menu #menuColor="matMenu">
+    @for(theme of themeService.getThemes(); track theme.id) {
+    <button mat-menu-item (click)="themeService.setTheme(theme.id)">
+        <div class="theme-item">
+            <div class="color-preview" [style.background-color]="theme.primary"></div>
+            <span>{{theme.displayName}}</span>
+        </div>
+    </button>
+    }
+</mat-menu>
+
+<mat-menu #menuMode="matMenu">
+    @for(mode of themeModeService.getThemeModes(); track mode.name) {
+    <button mat-menu-item (click)="themeModeService.setThemeMode(mode)">
+        <div class="theme-item">
+            <mat-icon>{{mode.icon}}</mat-icon>
+            <span>{{mode.name | titlecase}}</span>
+        </div>
+    </button>
+    }
 </mat-menu>

@@ -1,7 +1,0 @@
-post http://localhost:3000/auth/login
-Content-Type: application/json
-
-{
-    "email": "sergio@email.com",
-    "password": "Elgigante2025"
-}

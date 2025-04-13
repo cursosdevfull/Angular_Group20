@@ -12,6 +12,9 @@
             </td>
         </ng-container>
     </cdev-table>
-    <cdev-paginator [length]="dataOriginal.length" [pageSize]="pageSize" (onChangePage)="loadPage($event)"
-        projection03></cdev-paginator>
+    <footer projection03>
+        <button mat-flat-button (click)="showOptionsToExport()">Export data</button>
+        <cdev-paginator [length]="dataOriginal.length" [pageSize]="pageSize"
+            (onChangePage)="loadPage($event)"></cdev-paginator>
+    </footer>
 </cdev-container>

@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
+import { AuthService } from "../../auth/services/auth.service";
 
 export type MenuItem = {
     title: string;
@@ -9,6 +10,8 @@ export type MenuItem = {
 
 @Injectable({ providedIn: "root" })
 export class MenuService {
+    authService = inject(AuthService)
+
     readonly items: MenuItem[] = [
         { title: "Dashboard", icon: "dashboard", route: "/dashboard" },
         { title: "Users", icon: "people", route: "/users" },
@@ -22,6 +25,10 @@ export class MenuService {
             ]
         }
     ]
+
+/*     getAllMenuItems(): MenuItem[] {
+        const roles = this.authService.payload()?.roles || [];
+    } */
 
     getMenuItem(path: string): MenuItem | undefined {
         // First, check if it's a top-level item

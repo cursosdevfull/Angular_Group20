@@ -7,6 +7,9 @@ import { Layout } from './core/services/layout.type';
 import { LoaderComponent } from './core/views/loader/loader.component';
 import { LoaderService } from './core/services/loader.service';
 import { MenuComponent } from './core/views/menu/menu.component';
+import { IconService } from './core/services/icon.service';
+import { ThemeService } from './core/services/theme.service';
+import { ThemeModeService } from './core/services/theme-mode.service';
 
 @Component({
   selector: 'cdev-root',
@@ -17,19 +20,10 @@ import { MenuComponent } from './core/views/menu/menu.component';
 export class AppComponent {
   layoutService = inject(LayoutService)
   loaderService = inject(LoaderService)
-
-  //router = inject(Router)
+  iconService = inject(IconService)
+  themeService = inject(ThemeService)
+  themeModeService = inject(ThemeModeService)
 
   showLayout: WritableSignal<Layout> = this.layoutService.layout
   showLoader: WritableSignal<boolean> = this.loaderService.loader
-
-  /*   constructor() {
-      this.router.events.subscribe(event => {
-        if (event instanceof NavigationEnd) {
-          console.log('Current URL:', event.url);
-          console.log('Router state:', this.router.routerState.snapshot);
-        }
-      });
-    } */
-
 }

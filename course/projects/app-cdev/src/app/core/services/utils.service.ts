@@ -4,6 +4,7 @@ import { ConfirmComponent } from "../views/confirm/confirm.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatBottomSheet } from "@angular/material/bottom-sheet";
 import { OptionsExportComponent } from "../views/options-export/options-export.component";
+import { Metadata } from "../types/metadata.type";
 
 @Injectable({ providedIn: "root" })
 export class UtilsService {
@@ -25,7 +26,9 @@ export class UtilsService {
         this.notification.open(message, "", { duration: 1500 })
     }
 
-    showOptionsToExport() {
-        this.options.open(OptionsExportComponent)
+    showOptionsToExport(data: any[], metadata: Metadata, filename: string, subject: string, pathLogo?: string) {
+        this.options.open(OptionsExportComponent,
+            { data: { data, metadata, filename, subject, pathLogo } }
+        )
     }
 }

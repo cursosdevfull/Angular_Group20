@@ -62,6 +62,9 @@ export class PageUserComponent extends BaseComponent {
 
   ]
 
+  override filename = "exported-users"
+  override subject = "Users"
+
   constructor() {
     super(FormUserComponent, "dialog-form-user", "userId")
     this.loadPage(0)

@@ -78,6 +78,9 @@ export class PageCourseComponent extends BaseComponent {
     { courseId: 50, courseName: 'AWK', courseDescription: 'AWK is a domain-specific language designed for text processing and typically used as a data extraction and reporting tool.', courseDuration: '3 months' },
   ]
 
+  override filename = "exported-courses"
+  override subject = "Courses"
+
   constructor() {
     super(FormCourseComponent, "dialog-form-course", "courseId")
     this.loadPage(0)
