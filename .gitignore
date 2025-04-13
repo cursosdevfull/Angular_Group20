@@ -2,5 +2,5 @@ appForms
 appProviders
 observables
 signals
-interceptors
+/interceptors
 projections
